@@ -1024,6 +1024,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 //class Data {
 //    int x;
@@ -1672,4 +1673,219 @@ import java.awt.event.ActionListener;
 //    }
 //}
 
+//class ExceptionEx {
+//    public static void main(String[] args) {
+//        System.out.println(1);
+//        try {
+//            System.out.println(2);
+//            System.out.println(0 / 0); // 예외 발생
+//            System.out.println(3); // 출력 안되
+//        } catch (ArithmeticException ae) {
+//            ae.printStackTrace(); // java.lang.ArithmeticException: / by zero at ExceptionEx.main(Main.java:1680)
+//            System.out.println("message : " + ae.getMessage()); // message : / by zero
+//            System.out.println(4);
+//        } catch (Exception e) {
+//            System.out.println("Exception");
+//        }
+//        System.out.println(5);
+//    }
+//}
 
+
+//class ExceptionEx {
+//    //    public static void main(String[] args) {
+////        System.out.println(1);
+////        try {
+////            Exception e = new Exception("에러");
+////            throw e;
+//////            throw new Exception("이렇게도 보낼 수 있다.");
+////        } catch (ArithmeticException ae) {
+////            ae.printStackTrace(); // java.lang.ArithmeticException: / by zero at ExceptionEx.main(Main.java:1680)
+////            System.out.println("message : " + ae.getMessage()); // message : / by zero
+////            System.out.println(4);
+////        } catch (Exception e) {
+////            System.out.println("Exception");
+////        }
+////        System.out.println(5);
+////    }
+//    public static void main(String[] args) {
+//        method1();
+//    }
+//
+//    static void method1() {
+//        try {
+//            method2();
+//        } catch (Exception e) {
+//            System.out.println("여기서 예외처리됨");
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    static void method2() throws Exception {
+//        method3();
+//    }
+//
+//    static void method3() throws Exception {
+//        throw new Exception("에러 발생");
+//    }
+//
+//}
+
+//class ExceptionEx {
+//    public static void main(String[] args) {
+//        File f = createFile(args[0]);
+//        System.out.println("main에서는 에러가 발생하는지도 모름");
+//    }
+//
+//    static File createFile(String fileName) {
+//        try {
+//            if (fileName == null || fileName.equals(""))
+//                throw new Exception("예외 발생시킴");
+//        } catch (Exception e) {
+//            fileName = "제목없음.txt";
+//        } finally { // 예외가 발생하건 말건 항상 실행되는 블록
+//            File f = new File(fileName);
+//            createNewFile(f);
+//            return f;
+//        }
+//    }
+//
+//    static void createNewFile(File f) { // 임시로 만든 메서드라고 한다.(중요x)
+//        try {
+//            f.createNewFile(); // 파일 생성
+//        } catch (Exception e) {
+//        }
+//    }
+//}
+
+//class ExceptionEx {
+//    public static void main(String[] args) {
+//        try {
+//            File f = createFile(args[0]);
+//            System.out.println("예외 상황 x");
+//        } catch (Exception e) {
+//            System.out.println("예외 상황 발생");
+//        }
+//    }
+//
+//    static File createFile(String fileName) throws Exception {
+//        if (fileName == null || fileName == "")
+//            throw new Exception("예외 발생시킴");
+//        File f = new File(fileName);
+//        f.createNewFile();
+//        return f;
+//    }
+//
+//    static void createNewFile(File f) { // 임시로 만든 메서드라고 한다.(중요x)
+//        try {
+//            f.createNewFile(); // 파일 생성
+//        } catch (Exception e) {
+//        }
+//    }
+//}
+
+//class ExceptionEx {
+//    public static void main(String[] args) {
+//        try {
+//            // 예외가 발생할 가능성이 있는 문장들을 넣는다.
+//        } catch (Exception e) {
+//            // 예외처리를 위한 문장을 적는다.
+//        } finally {
+//            // 예외의 발생여부에 관계없이 항상 수행되어야하는 문장들을 넣는다.
+//            // finally블럭은 try-catch문의 맨 마지막에 위치해야 한다.
+//        }
+//    }
+//}
+
+//class ExceptionEx {
+//    public static void main(String[] args) {
+//        try {
+//            method1();
+//        } catch (Exception e) {
+//            System.out.println("호출한 쪽에서 처리");
+//        }
+//        System.out.println("성공");
+//    }
+//
+//    static void method1() throws Exception {
+//        try {
+//            System.out.println("메서드 내부에서 해결 한번");
+//            throw new Exception("내부 catch에서 해결");
+//        } catch (Exception e) { // 일단 자체 해결
+//            e.printStackTrace();
+//            throw e; // 다시 한번 더 던지기
+//        } finally {
+//            System.out.println("무조건");
+//        }
+////        System.out.println("이건 안됨");
+//    }
+//}
+
+//class ExceptionEx {
+//    public static void main(String[] args) {
+//        try {
+//            int result = method1();
+//            System.out.println(result);
+//        } catch (Exception e) {
+//            System.out.println("호출한 쪽에서 처리");
+//        }
+//        System.out.println("성공");
+//    }
+//
+//    static int method1() throws Exception {
+//        try {
+//            System.out.println("메서드 내부에서 해결 한번");
+//            throw new Exception("내부 catch에서 해결");
+////            return 0;
+//        } catch (Exception e) { // 일단 자체 해결
+//            e.printStackTrace();
+//            throw e; // 다시 한번 더 던지기
+////            return 1;
+//        } finally {
+//            System.out.println("무조건");
+////            return 3;
+//        }
+////        System.out.println("이건 안됨");
+//    }
+//}
+
+class ChinedException {
+    public static void main(String[] args) {
+        try {
+            install();
+        } catch (NewException1 e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    static void install() throws NewException1 {
+        try {
+            throwAllException();
+        } catch (NewException1 e) {
+            throw e;
+        } finally {
+            System.out.println("던져도 실행됨");
+        }
+    }
+
+    static void throwAllException() throws NewException1 { // RuntimeException을 던진건 표시 안해도됨
+        Boolean result1 = false;
+        Boolean reuslt2 = false;
+        if (!result1) throw new NewException1("첫번째 예외");
+        if (!reuslt2) throw new RuntimeException(new NewException2("두번째 예외"));
+    }
+}
+
+class NewException1 extends Exception {
+    NewException1(String msg) {
+        super(msg);
+    }
+}
+
+class NewException2 extends Exception {
+    NewException2(String msg) {
+        super(msg);
+    }
+}
