@@ -202,7 +202,46 @@ public class Main {
 //        StringBuffer sb = new StringBuffer("01234567");
 //        sb.replace(3, 6, "XX"); //012XX67
 //        System.out.println(sb);
-        double b = Math.toRadians(45);
-        double a = Math.toDegrees(3.14);
+//        double b = Math.toRadians(45);
+//        double a = Math.toDegrees(3.14);
+
+
+//        Boolean b= new Boolean(true);
+//        Integer a = Integer.valueOf(128);
+//        Integer b = Integer.valueOf(128);
+//
+//        System.out.println(a.equals(b));
+//        System.out.println(a.equals(b));
+//        System.out.println(a.compareTo(b));
+//        System.out.println(a.toString()+" "+b.toString());
+
+//        int a = Integer.parseInt("100",2);
+//        System.out.println(a); // 4
+//        setName2(null); // Exception in thread "main" java.lang.NullPointerException: name must not be null
+
+        String[] str1 = new String[]{"aaa","bbb"};
+        String[] str3 = new String[]{"aaa","bbb"};
+
+        System.out.println(str1==str3); // false
+        System.out.println(str1.equals(str3)); // false
+        System.out.println(Objects.equals(str1, str3)); // false
+        System.out.println(Objects.deepEquals(str1, str3)); // true
+
+        String[][] str = new String[][]{{"aaa","bbb"},{"ccc","ddd"}};
+        String[][] str2 = new String[][]{{"aaa","bbb"},{"ccc","ddd"}};
+
+        System.out.println(str==str2); // false
+        System.out.println(str.equals(str2)); // false
+        System.out.println(Objects.equals(str, str2)); // false
+        System.out.println(Objects.deepEquals(str, str2)); // true
+    }
+    static String name;
+    static void setName(String name){
+        if(name == null) throw new NullPointerException("name must not be null");
+        Main.name = name;
+    }
+
+    static void setName2(String name){
+        Main.name = Objects.requireNonNull(name, "name must not be null");
     }
 }
