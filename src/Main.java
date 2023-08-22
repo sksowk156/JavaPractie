@@ -1849,43 +1849,43 @@ import java.io.File;
 //    }
 //}
 
-class ChinedException {
-    public static void main(String[] args) {
-        try {
-            install();
-        } catch (NewException1 e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    static void install() throws NewException1 {
-        try {
-            throwAllException();
-        } catch (NewException1 e) {
-            throw e;
-        } finally {
-            System.out.println("던져도 실행됨");
-        }
-    }
-
-    static void throwAllException() throws NewException1 { // RuntimeException을 던진건 표시 안해도됨
-        Boolean result1 = false;
-        Boolean reuslt2 = false;
-        if (!result1) throw new NewException1("첫번째 예외");
-        if (!reuslt2) throw new RuntimeException(new NewException2("두번째 예외"));
-    }
-}
-
-class NewException1 extends Exception {
-    NewException1(String msg) {
-        super(msg);
-    }
-}
-
-class NewException2 extends Exception {
-    NewException2(String msg) {
-        super(msg);
-    }
-}
+//class ChinedException {
+//    public static void main(String[] args) {
+//        try {
+//            install();
+//        } catch (NewException1 e) {
+//            e.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    static void install() throws NewException1 {
+//        try {
+//            throwAllException();
+//        } catch (NewException1 e) {
+//            throw e;
+//        } finally {
+//            System.out.println("던져도 실행됨");
+//        }
+//    }
+//
+//    static void throwAllException() throws NewException1 { // RuntimeException을 던진건 표시 안해도됨
+//        Boolean result1 = false;
+//        Boolean reuslt2 = false;
+//        if (!result1) throw new NewException1("첫번째 예외");
+//        if (!reuslt2) throw new RuntimeException(new NewException2("두번째 예외"));
+//    }
+//}
+//
+//class NewException1 extends Exception {
+//    NewException1(String msg) {
+//        super(msg);
+//    }
+//}
+//
+//class NewException2 extends Exception {
+//    NewException2(String msg) {
+//        super(msg);
+//    }
+//}

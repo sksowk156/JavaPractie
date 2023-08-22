@@ -1,5 +1,7 @@
+package codingtest;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 //public class Hash {
 //    public static void main(String[] args) {
@@ -53,6 +55,43 @@ import java.util.HashMap;
 //        }
 //
 //        answer = temp2.keySet().toArray()[0].toString() ;
+//        return answer;
+//    }
+//}
+
+class Solution {
+    public int solution(int[] nums) {
+        int answer = 0;
+        HashSet<Integer> set = new HashSet<>();
+        for (int i : nums) {
+            set.add(i);
+        }
+
+        int limit = nums.length / 2;
+        int result = set.size();
+
+        if (limit > result) {
+            answer = result;
+        } else {
+            answer = limit;
+        }
+
+        return answer;
+    }
+}
+
+//class Solution {
+//    public int solution(int[] nums) {
+//        int answer = 0;
+//        Set<Integer> set = new HashSet<Integer>();
+//        for(int i : nums){
+//            set.add(i);
+//        }
+//        if(set.size() >= (nums.length/2)){
+//            answer = (nums.length/2);
+//        }else{
+//            answer = set.size();
+//        }
 //        return answer;
 //    }
 //}
