@@ -79,13 +79,6 @@ class Child extends Parent{
 }
 
 public class Enum {
-    @SuppressWarnings("unchecked")
-    ArrayList list = new ArrayList();
-
-    @SuppressWarnings("varargs")
-    public void function(List list){
-        list.addAll(list);
-    }
     public static void main(String[] args) {
         Child temp = new Child();
         Child.ParentMethod();
