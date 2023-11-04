@@ -53,13 +53,82 @@ public class StreamPractice {
     }
 
     public static void main(String[] args) {
-        Stream<String> strStrm = Stream.of("abc", "def", "ghi");
-        Stream<String> strStrm2 = Stream.of("ABC", "GHI", "JKLMN");
-        Stream<Stream<String>> strmStrm = Stream.of(strStrm, strStrm2);
-        Stream<String> strStream = strmStrm
-                .map(s -> s.toArray(String[]::new)) // Stream<Stream<String>> -> Stream<String[]>
-                .flatMap(Arrays::stream); // Stream<String[]> -> Stream<String>
-        strStream.forEach(System.out::println);
+//        IntStream intStream = IntStream.of(1, 2, 3, 4, 5);
+//
+//        int count = IntStream.of(1, 2, 3, 4, 5).reduce(0, (a, b) -> a + 1);
+//        int sum = IntStream.of(1, 2, 3, 4, 5).reduce(0, (a, b) -> a + b);
+//        int max = IntStream.of(1, 2, 3, 4, 5).reduce(Integer.MIN_VALUE, (a, b) -> a > b ? a : b);
+//        int min = IntStream.of(1, 2, 3, 4, 5).reduce(Integer.MAX_VALUE, (a, b) -> a < b ? a : b);
+//        System.out.println(count); // 5
+//        System.out.println(sum); // 15
+//        System.out.println(max); // 5
+//        System.out.println(min); // 1
+//
+//        OptionalInt optMax = IntStream.of(1, 2, 3, 4, 5).reduce((a, b) -> a > b ? a : b);
+//        OptionalInt optMin = IntStream.of(1, 2, 3, 4, 5).reduce((a, b) -> a < b ? a : b);
+//        OptionalInt optMax2 = IntStream.of(1, 2, 3, 4, 5).reduce(Integer::max);
+//        OptionalInt optMin2 = IntStream.of(1, 2, 3, 4, 5).reduce(Integer::min);
+//        System.out.println(optMax.getAsInt()); // 5
+//        System.out.println(optMin.getAsInt()); // 1
+//        System.out.println(optMax2.getAsInt()); // 5
+//        System.out.println(optMin2.getAsInt()); // 1
+
+
+//        boolean noFailed = makeStreamSource().anyMatch(s -> s.getTotalScore() <= 100);
+//        System.out.println(noFailed); // true
+//
+//        Optional<Student> optStudent = makeStreamSource().filter(s->s.getTotalScore()<=100).findFirst();
+//        System.out.println(optStudent.get()); // [안자바, 2, 100]
+
+//        int optMethod = Optional.of("12345").map(Integer::parseInt).get();
+//        System.out.println(optMethod); // 12345
+//        OptionalInt optInt = OptionalInt.of(0);
+////        OptionalInt optInt2 = OptionalInt.ofNullable() // 기본형은 ofNullable()이 없다.
+//        OptionalInt optInt2 = OptionalInt.empty();
+//
+//        // isPresent()으로 null 확인
+//        System.out.println(optInt.isPresent()); // true
+//        System.out.println(optInt2.isPresent()); // false
+//        // 값 가져오기
+//        System.out.println(optInt.getAsInt());
+//        System.out.println(optInt2.getAsInt());
+//        // 기본형이 아닐 경우 null을 구체적 주입 가능
+//        Optional<String> optString = Optional.ofNullable(null);
+//        Optional<String> optString2 = Optional.empty();
+//        System.out.println(optString.equals(optString2)); // true
+
+//        String str = "abc";
+//        Optional<String> optVal = Optional.of(str);
+//        Optional<String> optVal2 = Optional.of("abc");
+//        Optional<String> optValNullable = Optional.ofNullable(null);
+//        Optional<String> optVal3 = null;
+//        Optional<String> optVal4 = Optional.<String>empty();
+//
+//        String str1 = optVal.get(); // optVal이 null이면 예외 발생
+//        System.out.println(str1); // abc
+//
+//        String str2 = optValNullable.orElse(""); // optValNullable가 null이면 ""로 초기화
+//        System.out.println(str2); // ""
+//
+//        String str3 = optValNullable.orElseGet(String::new); // optValNullable이 null이면 '반환 값이 null이 아닌 람다식'을 실행
+//        System.out.println(str3); // ""
+//
+//        if (Optional.ofNullable("NotNull").isPresent()) {
+//            System.out.println("NotNull");
+//        }
+//        Optional.ofNullable("NotNull").ifPresent(System.out::println);
+
+//        String str4 = optVal3.orElseThrow(NullPointerException::new); // optVal3가 null이면 예외 발생
+//        System.out.println(str4); // 예외 발생
+
+
+//        Stream<String> strStrm = Stream.of("abc", "def", "ghi");
+//        Stream<String> strStrm2 = Stream.of("ABC", "GHI", "JKLMN");
+//        Stream<Stream<String>> strmStrm = Stream.of(strStrm, strStrm2);
+//        Stream<String> strStream = strmStrm
+//                .map(s -> s.toArray(String[]::new)) // Stream<Stream<String>> -> Stream<String[]>
+//                .flatMap(Arrays::stream); // Stream<String[]> -> Stream<String>
+//        strStream.forEach(System.out::println);
 
 //        Stream<String[]> strArrStrm = Stream.of(
 //                new String[]{"abc", "def", "ghi"},
